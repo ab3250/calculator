@@ -1,0 +1,2 @@
+2021/05/19 11:15:46 [emerg] 779#0: invalid variable name "rtdir" in /media/stor/gentoo-files/execs/compilers/programs/scheme/guile/nws/nginx/conf/nginx.conf:36
+2021/05/19 11:16:43 [emerg] 1065#0: "set" directive is not allowed here in /media/stor/gentoo-files/execs/compilers/programs/scheme/guile/nws/nginx/conf/nginx.conf:1
