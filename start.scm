@@ -24,8 +24,9 @@
 
 (define (handler data) 
   (cond 
-    ((string=? data "button1") (display "hello button 1"))
-    ((string=? data "button2") (display "hello button 2"))) data)
+    ((string=? data "dig1")  (string-append "{ \"data\": "  "\" " data "\"}" ))
+    ((string=? data "dig2")  (string-append "{ \"data\": "  "\" " data "\"}"))
+    (else #f)))
     
 (run-ws-server handler (make-server-socket #:port 9090))
 

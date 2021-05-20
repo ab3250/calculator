@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE abiword PUBLIC "-//ABISOURCE//DTD AWML 1.0 Strict//EN" "http://www.abisource.com/awml.dtd">
+<abiword template="false" xmlns:ct="http://www.abisource.com/changetracking.dtd" xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:math="http://www.w3.org/1998/Math/MathML" xid-max="24" xmlns:dc="http://purl.org/dc/elements/1.1/" styles="unlocked" fileformat="1.0" xmlns:svg="http://www.w3.org/2000/svg" xmlns:awml="http://www.abisource.com/awml.dtd" xmlns="http://www.abisource.com/awml.dtd" xmlns:xlink="http://www.w3.org/1999/xlink" version="0.99.2" xml:space="preserve" props="dom-dir:ltr; document-footnote-restart-section:0; document-endnote-type:numeric; document-endnote-place-enddoc:1; document-endnote-initial:1; lang:en-US; document-endnote-restart-section:0; document-footnote-restart-page:0; document-footnote-type:numeric; document-footnote-initial:1; document-endnote-place-endsection:0">
+<!-- ======================================================================== -->
+<!-- This file is an AbiWord document.                                        -->
+<!-- AbiWord is a free, Open Source word processor.                           -->
+<!-- More information about AbiWord is available at http://www.abisource.com/ -->
+<!-- You should not edit this file by hand.                                   -->
+<!-- ======================================================================== -->
+
+<metadata>
+<m key="abiword.date_last_changed">Sun Dec  6 14:13:52 2020
+</m>
+<m key="abiword.generator">AbiWord</m>
+<m key="dc.creator">ab</m>
+<m key="dc.date">Sun Aug 23 11:41:26 2020
+</m>
+<m key="dc.format">application/x-abiword</m>
+</metadata>
+<rdf>
+</rdf>
+<history version="6" edit-time="411" last-saved="1607282032" uid="f57d526c-e556-11ea-9c85-f565e57c7675">
+<version id="1" started="1598197286" uid="1acdfc56-e557-11ea-9c85-f565e57c7675" auto="0" top-xid="2"/>
+<version id="2" started="1598198083" uid="f5d455ba-e558-11ea-9b31-c503b310e607" auto="0" top-xid="9"/>
+<version id="3" started="1601135875" uid="0a8fcc3c-0011-11eb-9461-bbb1ebcbedba" auto="0" top-xid="18"/>
+<version id="4" started="1602639980" uid="0ebc61ec-0dbf-11eb-95a1-cc1fe8423d2f" auto="0" top-xid="18"/>
+<version id="6" started="1607282015" uid="2dc70ddc-37f7-11eb-8529-9eafcb7b854a" auto="0" top-xid="23"/>
+</history>
+<styles>
+<s type="P" name="Normal" followedby="Current Settings" props="font-family:Times New Roman; margin-top:0pt; font-style:normal; margin-left:0pt; bgcolor:transparent; widows:2; text-align:left; text-indent:0in; text-position:normal; margin-bottom:0pt; font-weight:normal; margin-right:0pt; font-size:12pt; font-variant:normal; text-decoration:none; line-height:1.0; color:000000; font-stretch:normal"/>
+</styles>
+<pagesize pagetype="Letter" orientation="portrait" width="8.500000" height="11.000000" units="in" page-scale="1.000000"/>
+<section xid="1" props="page-margin-footer:0.5in; page-margin-header:0.5in">
+<p style="Normal" xid="2">opra +</p>
+<p style="Normal" xid="19">oprs  -</p>
+<p style="Normal" xid="21">oprd /</p>
+<p style="Normal" xid="22">oprm * </p>
+<p style="Normal" xid="20">opre summation</p>
+<p style="Normal" xid="23">oprc ch</p>
+<p style="Normal" xid="24"><c></c>oprr enter</p>
+<p style="Normal" xid="13"><c></c><c></c></p>
+<p style="Normal" xid="8"><c></c><c></c></p>
+<p style="Normal" xid="9"><c></c></p>
+</section>
+</abiword>
