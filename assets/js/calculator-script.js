@@ -7,7 +7,7 @@ canvas.height = 70
 window.setInterval('animate()', 70)
 
 const display = new SegmentDisplay("display")
-      display.pattern         = '############.##';
+      display.pattern         = '#.#.#.#.#.#.#.#.#.#.#.#.#.';
       display.segmentCount    = SegmentDisplay.FourteenSegment
       display.cornerType      = SegmentDisplay.RoundedCorner;
       display.digitHeight     = 6;
@@ -18,8 +18,6 @@ const display = new SegmentDisplay("display")
       display.segmentDistance = 0.2;
       display.colorOn         = 'rgb(255, 44, 15)';
       display.colorOff        = 'rgb(60, 22, 5)';
- 
-
 
 ws = new WebSocket("ws://localhost:9090")
 
@@ -46,29 +44,27 @@ function mode (btnID) {
 function loadWindow () {
   Array.from(document.getElementsByTagName('button')).forEach(function (value, i, col) {
     col[i].onclick = function (e) { mode(e.target.id) }
-  })
-//initialize display
-
+   })
 }
 
-      function animate() {       
-          var time    = new Date()
-          var hours   = time.getHours()
-          var minutes = time.getMinutes()
-          var seconds = time.getSeconds()
-          var millis  = time.getMilliseconds()
-          var value
-          var count = seconds + 60 * minutes + 24 * 60 * hours
-          value = count + '.' + Math.floor(millis / 100)
-          value = '        '.substr(0, 14 - value.length) + value + '0'
-          display.setValue(value);
+function animate() {       
+        var string = numeral(1000.437).format('0.00')
+//        var string = numeral(10000000000.437).format('0.000e+0')
+
+   	let value=displayNumber(string)
+
+
          
         } 
-    
 
-Number.prototype.format = function(fractionDigits, decimalPoint) {
-  var fractionDigits = isNaN(fractionDigits = Math.abs(fractionDigits)) ? 2 : fractionDigits;
-  var decimalPoint   = (decimalPoint === undefined) ? "," : decimalPoint;
-  return this.toFixed(fractionDigits).replace(/\./, decimalPoint);
-}
+
+
+
+
+
+/*
+
+*/
+
+
 
