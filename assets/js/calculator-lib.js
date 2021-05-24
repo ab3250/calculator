@@ -20,4 +20,28 @@ function displayNumber(numberOrig){
 	display.setValue(numberOutput)
 }
 
+function formatNumber(numberOrig){
+	displayNumber(spaceE(numberOrig.toPrecision(5)))
+}
 
+function spaceE(numberOrig){
+	let numberString = numberOrig.toString()
+	return numberString.substring(0,numberString.indexOf('e')) + '\u0020' 
+		+ numberString.substring(numberString.indexOf('e'), numberString.length)
+
+}
+
+
+/*
+
+
+string = string.substring(0,string.indexOf('e')) + '\u0020' + string.substring(string.indexOf('e'), string.length)
+0: 5032
+1: 4857234
+2: 5834856
+3: 9331745
+4: 3343434
+5: 6346912
+6: 1445345
+7: 4300000
+*/

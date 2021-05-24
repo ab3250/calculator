@@ -5,23 +5,30 @@
     --border-fill: #d0d0d0;
     --led-off: #d0d0d0;
   }
-  div{
+
+div{
+ 
     /* border: 1px solid #000; */
-  }
- .wrapper{
+}
+
+.wrapper{
       margin: 0;      
       background-color: lightblue;
       display: grid;
       justify-content: center;
-  }
+}
+
 #display{
 	height: 100%;
 	width: 100%;
 	float:right;
 	display:block;
-margin: 0px 0px 0px 0px;
+	margin: 0px 0px 0px 0px;
 }
-canvas{margin: 10px  10px  10px  10px}
+
+canvas{margin: 10px  10px  10px  10px
+}
+
 #span span{
   writing-mode: vertical-lr;
   text-orientation: upright; 
@@ -54,21 +61,20 @@ button{
 display: grid;
 grid-template-columns: 80px;
 grid-template-rows: (repeat 5, 75px) 100px;
-grid-column-gap: 5px;
-grid-row-gap: 5px;
+grid-gap: 10px;
 height: 600px;
 width: 900px;     
 margin: 0,auto;
-background-color: lightseagreen;
-padding: 3px;
+background-color: #777777;
+padding: 10px;
 }
  
 
-.div1 { grid-area: 1 / 1 / span 1 / span 10; 
+.div1 { grid-area: 1 / 1 / span 1 / span 10;	
   	padding: 0px  15px  0px  15px;
 	float:right;
 	display:block;
-  background-color: rgb(36, 30, 30);
+  	background-color: rgb(36, 30, 30);
 }
 /*.div2 { grid-area: 5 / 6 / 7 / 7;
   margin: 3px;
@@ -212,7 +218,7 @@ button:hover {
 
 #oprm{
     background-image:url('/assets/img/multiply.png');
-    background-size: 45px 45px;
+    background-size: 45px 45px;    
 }
 
 
@@ -223,5 +229,10 @@ button:hover {
 
 #opre{
     background-image:url('/assets/img/sum.png');
+    background-size: 45px 45px;
+}
+
+#oprb{
+    background-image:url('/assets/img/backspace.png');
     background-size: 45px 45px;
 }

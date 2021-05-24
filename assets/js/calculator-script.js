@@ -4,9 +4,9 @@ let ws
 
 document.addEventListener('DOMContentLoaded', loadWindow, false)
 
-window.setInterval('animate()', 70)
+window.setInterval('animate()', 3000)
 
-function mode (btnID) {
+function mode (btnID) {	
       ws.send(btnID)
 }
 
@@ -44,8 +44,17 @@ function loadWindow () {
   	console.log("WebSocket error observed:", event)
     }
 }
-
 function animate() { 
+let a = new Decimal('-5032485723458348569331745.33434346346912144534543'),
+    b = new Decimal('5.6700000'),
+    c = new Decimal('3.5444')
+    d = a.dividedBy(b).dividedBy(c)
+
+formatNumber(a)
+//console.log(d.toPrecision(14))
+//displayNumber(d.toPrecision(7))
+
+
 
 } 
 
