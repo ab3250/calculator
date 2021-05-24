@@ -1,5 +1,4 @@
 let display
-let canvas
 let ws
 
 document.addEventListener('DOMContentLoaded', loadWindow, false)
@@ -11,51 +10,45 @@ function mode (btnID) {
 }
 
 function loadWindow () {
-  	Array.from(document.getElementsByTagName('button')).forEach(function (value, i, col) {
+	Array.from(document.getElementsByTagName('button')).forEach(function (value, i, col) {
     	 col[i].onclick = function (e) { mode(e.target.id) }
-   	})
-    ws = new WebSocket("ws://localhost:9090")
-    display = new SegmentDisplay("display")
-    display.pattern         = '#.#.#.#.#.#.#.#.#.#.#.#.#.';
-    display.segmentCount    = SegmentDisplay.FourteenSegment
-    display.cornerType      = SegmentDisplay.RoundedCorner;
-    display.digitHeight     = 6;
-    display.digitWidth      = 8;
-    display.digitDistance   = 2.0;
-    display.displayAngle    = 6;
-    display.segmentWidth    = .55;
-    display.segmentDistance = 0.2;
-    display.colorOn         = 'rgb(255, 44, 15)';
-    display.colorOff        = 'rgb(60, 22, 5)';
-    canvas = document.getElementsByTagName('canvas')[0]
-    canvas.width  = 900
-    canvas.height = 70
-    ws.onmessage = function(event) {
-     console.log((JSON.parse(event.data)).data)
-     displayNumber(numeral((JSON.parse(event.data)).data).format('0.0'))
-    }
-    ws.onopen = function() {
-	console.log("connected")
-    }
-    ws.onclose = function() {
-	console.log("closed websocket")
-    }
-    ws.onerror = function(event) {
-  	console.log("WebSocket error observed:", event)
-    }
+	})
+    	ws = new WebSocket("ws://localhost:9090")
+    	display = new SegmentDisplay("display")
+	display.pattern         = '#.#.#.#.#.#.#.#.#.#.#.#.#.';
+    	display.segmentCount    = SegmentDisplay.FourteenSegment
+    	display.cornerType      = SegmentDisplay.RoundedCorner;
+    	display.digitHeight     = 6;
+    	display.digitWidth      = 8;
+    	display.digitDistance   = 2.0;
+    	display.displayAngle    = 6;
+    	display.segmentWidth    = .55;
+    	display.segmentDistance = 0.2;
+    	display.colorOn         = 'rgb(255, 44, 15)';
+    	display.colorOff        = 'rgb(60, 22, 5)';
+    	let canvas = document.getElementsByTagName('canvas')[0]
+    	canvas.width  = 900
+    	canvas.height = 70
+    	ws.onmessage = function(event) {
+   	console.log((JSON.parse(event.data)).data)
+   	displayNumber(numeral((JSON.parse(event.data)).data).format('0.0'))
+	}
+    	ws.onopen = function() {
+		console.log("connected")
+	}
+    	ws.onclose = function() {
+		console.log("closed websocket")
+    	}
+    	ws.onerror = function(event) {
+  		console.log("WebSocket error observed:", event)
+    	}
 }
 function animate() { 
-let a = new Decimal('-5032485723458348569331745.33434346346912144534543'),
-    b = new Decimal('5.6700000'),
-    c = new Decimal('3.5444')
-    d = a.dividedBy(b).dividedBy(c)
-
-formatNumber(a)
-//console.log(d.toPrecision(14))
-//displayNumber(d.toPrecision(7))
-
-
-
+	let a = new Decimal('-5032485723458348569331745.33434346346912144534543'),
+    	b = new Decimal('5.6700000'),
+    	c = new Decimal('3.5444')
+    	d = a.dividedBy(b).dividedBy(c)
+	formatNumber(a)
 } 
 
 
@@ -64,13 +57,7 @@ formatNumber(a)
 
 
 /*
-	let fmt = '0' + '.' + '00'
-	var string = '-' + numeral(1015444445532344400.437).format('0.000e+0')
-	string = string.substring(0,string.indexOf('e')) + '\u0020' + string.substring(string.indexOf('e'), string.length)
-//        var string = numeral(1000.437).format('0.00')
-//      var string = numeral(10000000000.437).format('0.000e+0')
-   	let value=displayNumber(string)
-         
+
 */
 
 
