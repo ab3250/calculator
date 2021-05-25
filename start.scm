@@ -20,7 +20,7 @@
 
 ;;regex objects for button press or command from ajax
 ;;operation operators, commands, digits, and refresh display directive
-(define regex-opr (make-regexp "^opr([a]|[s]|[d]|[m]|[c]|[r]|[e]|[b])$"))
+(define regex-opr (make-regexp "^opr([a]|[s]|[d]|[m]|[c]|[r]|[e]|[b]|[x])$"))
 ;;(define regex-cmd (make-regexp "^cmd([e])$"))
 (define regex-dig (make-regexp "^dig([0-9]{1}|[p])$"))
 (define regex-dsp (make-regexp "^dsp$"))
