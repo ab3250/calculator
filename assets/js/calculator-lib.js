@@ -18,6 +18,7 @@ function displayNumber(numberOrig){
 	       	numberOutput+=numberPadding[step]
         }
 	display.setValue(numberOutput)
+
 }
 
 function formatNumber(numberOrig){
@@ -32,16 +33,7 @@ function spaceE(numberOrig){
 }
 
 
+
 /*
 
-
-string = string.substring(0,string.indexOf('e')) + '\u0020' + string.substring(string.indexOf('e'), string.length)
-0: 5032
-1: 4857234
-2: 5834856
-3: 9331745
-4: 3343434
-5: 6346912
-6: 1445345
-7: 4300000
 */

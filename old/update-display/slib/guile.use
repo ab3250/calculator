@@ -1,2 +1,0 @@
-;"guile.use" Configuration file for SLIB for GUILE	-*-scheme-*-
-(use-modules (ice-9 slib))

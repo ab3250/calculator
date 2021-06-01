@@ -1,2 +1,0 @@
-@set SLIBVERSION 3b6
-@set SLIBDATE February 2020

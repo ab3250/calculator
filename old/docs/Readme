@@ -1,3 +1,0 @@
-to run 
-guile -s start.scm
-open http://localhost:8080/index.html
