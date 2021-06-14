@@ -18,12 +18,15 @@ function displayNumber(numberOrig){
 	       	numberOutput+=numberPadding[step]
         }
 	display.setValue(numberOutput)
-
 }
 
 function formatNumber(numberOrig){
-	displayNumber(spaceE(numberOrig.toPrecision(5)))
+	let val = new Decimal(numberOrig)
+	displayNumber(spaceE(val.toDecimalPlaces(2)))
+	console.log(val.toDecimalPlaces(2).toString())
 }
+
+
 
 function spaceE(numberOrig){
 	let numberString = numberOrig.toString()
