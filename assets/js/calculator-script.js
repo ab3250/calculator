@@ -2,7 +2,7 @@ let display
 let stack
 let register = ''
 let regexDig=/^dig([0-9]{1}|[p])$/ // digits 0-9 p period
-let regexOpr=/^opr([a]|[s]|[d]|[m]|[r]|[e]|[x])$/ //operator add subtract divide multiply return e=sum x=undefined
+let regexOpr=/^opr([a]|[s]|[d]|[m]|[r]|[e]|[x]|[o])$/ //operator add subtract divide multiply return e=sum x=undefined o=rolldown 
 let regexCmd=/^cmd([b]|[c])$/ // non-mode changing commands backspace chs 
 
 document.addEventListener('DOMContentLoaded', loadWindow, false)
@@ -94,6 +94,7 @@ function buttonPress (btnID) {
 	stack.dataStore.forEach(x=>console.log(x))
 }
 
+//TODO fix stack 4 max and pop a zero if empty
 
 
 /*

@@ -236,3 +236,8 @@ button:hover {
     background-image:url('/assets/img/backspace.png');
     background-size: 45px 45px;
 }
+
+#opro{
+    background-image:url('/assets/img/rdn.png');
+    background-size: 45px 45px;
+}
