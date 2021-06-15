@@ -6,11 +6,6 @@
     --led-off: #d0d0d0;
   }
 
-div{
- 
-    /* border: 1px solid #000; */
-}
-
 .wrapper{
       margin: 0;      
       background-color: #333;
@@ -239,5 +234,11 @@ button:hover {
 
 #opro{
     background-image:url('/assets/img/rdn.png');
+    background-size: 45px 45px;
+}
+
+
+#oprg{
+    background-image:url('/assets/img/xtoy.png');
     background-size: 45px 45px;
 }
