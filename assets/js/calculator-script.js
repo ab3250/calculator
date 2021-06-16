@@ -1,38 +1,4 @@
-let display
-let stack
-let register = ''
-let regexDig=/^dig([0-9]{1}|[p])$/ // digits 0-9 p period
-let regexOpr=/^opr([a]|[s]|[d]|[m]|[r]|[e]|[x]|[o]|[g])$/ //operator add subtract divide multiply return e=sum x=undefined o=rolldown 
-let regexCmd=/^cmd([b]|[c])$/ // non-mode changing commands backspace chs 
-
-document.addEventListener('DOMContentLoaded', loadWindow, false)
-
-function loadWindow () {
-	Array.from(document.getElementsByTagName('button')).forEach(function (value, i, col) {
-    	 col[i].onclick = function (e) { buttonPress(e.target.id) }
-	})
-    	display = new SegmentDisplay("display")
-		display.pattern         = '#.#.#.#.#.#.#.#.#.#.#.#.#.';
-    	display.segmentCount    = SegmentDisplay.FourteenSegment
-    	display.cornerType      = SegmentDisplay.RoundedCorner;
-    	display.digitHeight     = 6;
-    	display.digitWidth      = 8;
-    	display.digitDistance   = 2.0;
-    	display.displayAngle    = 6;
-    	display.segmentWidth    = .55;
-    	display.segmentDistance = 0.2;
-    	display.colorOn         = 'rgb(255, 44, 15)';
-    	display.colorOff        = 'rgb(60, 22, 5)';
-    	let canvas = document.getElementsByTagName('canvas')[0]
-    	canvas.width  = 900
-    	canvas.height = 70
-		delete canvas
-    	stack = new Stack(4)
-    	stack.dataStore.forEach(element => element=new Decimal('0.000'))		
-}
-
-let mode = 0 //mode 0 = data entry mode 1 = mirror mode 3 = 
-
+'use strict'
 
 function buttonPress (btnID) {
 	let btn = btnID[3]
@@ -49,29 +15,39 @@ function buttonPress (btnID) {
 		}
 	}else if (regexOpr.test(btnID)&&register.length!==0){
 		mode = 1
-		const c = stack.pop() 
-		
-		//alert((stack.pop()).toString())
+		const c = stack.peek(0) 
 		switch(btn){
-			case 'r':
+			case 'r': //return
 				register.length !== 0 ? stack.push(register) : null
 				break;
-			case 'a':
+			case 'a': //add
 				register = (Number(c) + Number(register)).toFixed(3)
 				stack.push(register)
 				break
-			case 's':
+			case 's': //subtract
 				register = (Number(c) - Number(register)).toFixed(3)
 				stack.push(register)
 				break
-			case 'm':
+			case 'm': //multiply
 				register = (Number(c) * Number(register)).toFixed(3)
 				stack.push(register)
-				break;
-			case 'd':
+				break
+			case 'd': //divide
 				Number(c) !== 0 ? (register = (Number(c) / Number(register)).toFixed(3), stack.push(register)) : stack.push(c)
 				console.log(register) 
-				break;
+				break
+			case 'o': //rolldown
+				register = (Number(c) + Number(register)).toFixed(3)
+				stack.push(register)
+				break
+			case 'g': //x<>y
+				register = (Number(c) + Number(register)).toFixed(3)
+				stack.push(register)
+				break
+			case 'c': //clear all
+				register = (Number(c) + Number(register)).toFixed(3)
+				stack.push(register)
+				break
 		//default: register += btn
 		}
 	}else if (regexCmd.test(btnID)) {
@@ -88,10 +64,11 @@ function buttonPress (btnID) {
 		}
 	}
 	//formatNumber(register)
-	displayNumber(register.length === 0 ? '0' : register)
+	displayNumber(register.length === 0 ? '0.000' : register)
+	stack.print()
 	//register.length === 0 ? displayNumber('0.000') : displayNumber(register)
-	console.clear()
-	stack.dataStore.forEach(x=>console.log(x))
+	//console.clear()
+	//stack.dataStore.forEach(x=>console.log(x))
 }
 
 //TODO fix stack 4 max and pop a zero if empty

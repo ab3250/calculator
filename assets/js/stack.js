@@ -1,29 +1,38 @@
 function Stack() {
-   this.dataStore = [];
-   this.top = 0;
-   this.push = push;
-   this.pop = pop;
-   this.peek = peek;
-   this.clear = clear;
-   this.length = length;
-}
+   
+   this.dataStore = ['','','','']
+   
+   this.push = function (element) {
+      this.dataStore.unshift(element)
+      this.dataStore.splice(4,1)    
+   }
 
-function push(element) {
-   this.dataStore[this.top++] = element;
-}
+   this.pop = function () {
+      let element = this.dataStore.shift()
+      this.dataStore.splice(3, 0, '')
+      return element
+   }
 
-function peek() {
-   return this.dataStore[this.top-1];
-}
+   this.peek = function (loc) {
+      return this.dataStore[loc];
+   }
 
-function pop() {
-   return this.dataStore[--this.top];
-}
+   this.clear = function () {
+     this.dataStore.forEach(x => x = '')
+   }
 
-function clear() {
-   this.top = 0;
-}
+   this.length = function () {
+      return this.dataStore.length()
+   }
 
-function length() {
-   return this.top;
+   this.rolldown = function () {
+      this.pop()
+   }
+
+   this.print = function(){
+     // console.clear()
+      console.log(this.dataStore + '\n')
+      
+   }
+  
 }
