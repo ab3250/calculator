@@ -2,12 +2,6 @@
 
 let display
 let stack
-let register = ''
-let mode = 0 //mode 0 = data entry mode 1 = mirror mode 3 = 
-
-const regexDig=/^dig([0-9]{1}|[p])$/ // digits 0-9 + p = period
-const regexOpr=/^opr([a]|[s]|[d]|[m]|[r]|[e]|[x]|[o]|[g])$/ //operator add subtract divide multiply return e=sum x=undefined o=rolldown g = x<>y
-const regexCmd=/^cmd([b]|[c])$/ // non-mode changing commands backspace chs 
 
 document.addEventListener('DOMContentLoaded', loadWindow, false)
 

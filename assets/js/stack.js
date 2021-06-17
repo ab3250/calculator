@@ -17,8 +17,8 @@ function Stack() {
       return this.dataStore[loc];
    }
 
-   this.clear = function () {
-     this.dataStore.forEach(x => x = '')
+   this.clear = function () {   
+     this.dataStore.fill('')
    }
 
    this.length = function () {
@@ -29,10 +29,18 @@ function Stack() {
       this.pop()
    }
 
+   this.swapxy = function(){
+      let  value1 = this.pop(),
+           value2 = this.pop()
+      this.push(value1)
+      this.push(value2)
+    }
+
    this.print = function(){
      // console.clear()
       console.log(this.dataStore + '\n')
-      
    }
+
+
   
 }

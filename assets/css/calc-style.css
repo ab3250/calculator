@@ -136,11 +136,6 @@ button:hover {
   background-color: lightgrey;
 }
 
-
-#oprr{
-    background-image:url('/assets/img/enter.png');
-}
-
 #dig0{
     background-image:url('/assets/img/0.png');
     background-size: 45px 45px;
@@ -192,7 +187,7 @@ button:hover {
 }
 
 
-#cmdc{
+#splc{
     background-image:url('/assets/img/maths.png');
 }
 
@@ -232,13 +227,16 @@ button:hover {
     background-size: 45px 45px;
 }
 
-#opro{
+#cmdo{
     background-image:url('/assets/img/rdn.png');
     background-size: 45px 45px;
 }
 
-
-#oprg{
+#cmdg{
     background-image:url('/assets/img/xtoy.png');
     background-size: 45px 45px;
+}
+
+#cmdr{
+    background-image:url('/assets/img/enter.png');
 }
