@@ -5,7 +5,7 @@ sed -i '/.*set \$rtdir.*/c\set $rtdir '"$(pwd)"';' $(pwd)/../nginx/conf/nginx.co
 
 sudo $(pwd)/../nginx/sbin/nginx -c $(pwd)/../nginx/conf/nginx.conf -p $(pwd)/../nginx &
 
-/usr/bin/google-chrome-stable --remote-debugging-port localhost & 
+/usr/bin/google-chrome-stable --remote-debugging-port --kiosk localhost:9222 & 
 #guile start.scm
 
 
