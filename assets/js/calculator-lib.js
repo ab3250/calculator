@@ -2,6 +2,7 @@
 
 let display
 let stack
+let formater = Number.prototype.toFixed
 
 document.addEventListener('DOMContentLoaded', loadWindow, false)
 
@@ -25,7 +26,8 @@ function loadWindow () {
     	canvas.width  = 900
     	canvas.height = 70
     	stack = new Stack(4)
-    	stack.dataStore.forEach(element => element=new Decimal('0.000'))		
+    	stack.dataStore.forEach(element => element=new Decimal('0.000'))
+		displayNumber(Number(0).toFixed(3))
 }
 
 function setCharAt(str,index,chr) {

@@ -35,6 +35,10 @@ function Stack() {
       this.push(value1)
       this.push(value2)
     }
+    
+    this.set = function(x,y){
+      this.dataStore[x] = y   
+   }
 
    this.print = function(){
      // console.clear()

@@ -22,7 +22,7 @@ function buttonPress (btnID) {
 		}
 	}else if (regexOpr.test(btnID)&&register.length!==0){
 		dataEntryMode = false
-		const 	c = stack.peek(0),
+		const 	//c = stack.peek(0),
 				value1 = stack.pop(),
 				value2 = stack.pop()
 		switch(btn){
@@ -64,30 +64,24 @@ function buttonPress (btnID) {
 				register = stack.peek(0)				
 				break
 			case 'r': //return
-				register.length !== 0 ? stack.push(register) : null
+				register.length !== 0 ? stack.push(register = (Number(register).toFixed(3))) : null
 				break
 			default: null
 		}		
 	}else if (regexSpl.test(btnID)&&register.length!==0){
 		switch(btn){
-			case 'c':				
-				register.length !== 0 ? register = (register * -1).toString() : null
+			case 'c':
+				register.length !== 0 && register != 0 ? register = (register * -1).toFixed(3) : null
+				dataEntryMode === false ? stack.set(0, register) : null
 				break
 			default: null
 		}
 	}
 	//formatNumber(register)
-	displayNumber(register.length === 0 ? '0.000' : register)
+	displayNumber(register.length === 0 ? (Number(0).toFixed(3)) : register)
 	stack.print()
 	//register.length === 0 ? displayNumber('0.000') : displayNumber(register)
 	//console.clear()
 	//stack.dataStore.forEach(x=>console.log(x))
 }
 
-//TODO fix stack 4 max and pop a zero if empty
-// chs push back on stack
-// empty register display 0
-
-/*
-if register empty display 0.00
-*/
