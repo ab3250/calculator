@@ -189,6 +189,7 @@ button:hover {
 
 #splc{
     background-image:url('/assets/img/maths.png');
+    background-size: 45px 45px;
 }
 
 #opra{
@@ -239,4 +240,10 @@ button:hover {
 
 #cmdr{
     background-image:url('/assets/img/enter.png');
+    background-size: 45px 45px;
+}
+
+#cmdf{
+    background-image:url('/assets/img/clx.png');
+    background-size: 45px 45px;
 }

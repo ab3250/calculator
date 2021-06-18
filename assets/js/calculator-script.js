@@ -67,15 +67,16 @@ function buttonPress (btnID) {
 	}else if (regexSpl.test(btnID)&&register.length!==0){
 		switch(btn){
 			case 'c':
-				register.length !== 0 && register != 0 ? register = (register * -1).toFixed(3) : null
-				dataEntryMode === false ? stack.set(0, register) : null
+				dataEntryMode === false ?
+					(register = stack.pop(), stack.push(register = (register * -1).toFixed(3)))					:
+					register.length !== 0 && register != 0 ? register = (register * -1).toString(): null			
 				break
 			case 'b': //backspace //TODO - fix bs clear regi
 				dataEntryMode  === false ?
 				 (stack.pop(register),register = '') 
 				 : 		// TODO: ????		
-				(register.length !== 0 ? register = register.substring(0,register.length-1) : null, // can't go below zero otherwise remove char
-				register.length === 1 && register[0]==='-' ? register = '' : null) // if only char is negative sign clear
+				register.length !== 0 ? register = register.substring(0,register.length-1) : null  // can't go below zero otherwise remove char
+				// if only char is negative sign clear
 				break
 			default: null
 		}
