@@ -1,9 +1,8 @@
 'use strict'
 
 const display = new SegmentDisplay("display"),
-	  stack = new Stack(4)
-let	fmtDigits = 3, fmtType = "fixed"
-
+	  stack = new Stack
+let	fmtDigits = 3, fmtType = "fix"
 
 document.addEventListener('DOMContentLoaded', loadWindow, false)
 
@@ -26,8 +25,6 @@ function loadWindow () {
     	let canvas = document.getElementsByTagName('canvas')[0]
     	canvas.width  = 900
     	canvas.height = 70
-    	
-    	stack.dataStore.forEach(element => element=new Decimal('0.000'))
 		displayNumber(Number(0).toFixed(3))
 }
 
@@ -62,9 +59,8 @@ function spaceE(numberOrig){ //add a space to exponent 4.0 E +10
 	let numberString = numberOrig.toString()
 	return numberString.substring(0,numberString.indexOf('e')) + '\u0020' 
 		+ numberString.substring(numberString.indexOf('e'), numberString.length)
-
 }
 
 function format(obj){	
-	return fmtType === "fixed" ? obj.toFixed(fmtDigits) : fmtType === "exp" ? obj.toExponential(fmtDigits) : null
+	return fmtType === "fix" ? obj.toFixed(fmtDigits) : fmtType === "exp" ? obj.toExponential(fmtDigits) : null
 } 

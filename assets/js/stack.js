@@ -7,7 +7,7 @@ function Stack() {
       this.dataStore.splice(4,1)    
    }
 
-   this.pop = function () {
+   this.rolldown = this.pop = function () {
       let element = this.dataStore.shift()
       this.dataStore.splice(3, 0, '')
       return element === '' ? format(Number(0)) : element
@@ -25,10 +25,6 @@ function Stack() {
       return this.dataStore.length()
    }
 
-   this.rolldown = function () {
-      this.pop()
-   }
-
    this.swapxy = function(){
       let  value1 = this.pop(),
            value2 = this.pop()
@@ -44,7 +40,4 @@ function Stack() {
      // console.clear()
       console.log(this.dataStore + '\n')
    }
-
-
-  
 }
