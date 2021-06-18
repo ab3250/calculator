@@ -10,7 +10,7 @@ function Stack() {
    this.pop = function () {
       let element = this.dataStore.shift()
       this.dataStore.splice(3, 0, '')
-      return element === '' ? '0' : element
+      return element === '' ? format(Number(0)) : element
    }
 
    this.peek = function (loc) {

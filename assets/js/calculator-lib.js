@@ -1,8 +1,9 @@
 'use strict'
 
-let display
-let stack
-let formater = Number.prototype.toFixed
+const display = new SegmentDisplay("display"),
+	  stack = new Stack(4)
+let	fmtDigits = 3, fmtType = "fixed"
+
 
 document.addEventListener('DOMContentLoaded', loadWindow, false)
 
@@ -10,7 +11,7 @@ function loadWindow () {
 	Array.from(document.getElementsByTagName('button')).forEach(function (value, i, col) {
     	 col[i].onclick = function (e) { buttonPress(e.target.id) }
 	})
-    	display = new SegmentDisplay("display")
+    	
 		display.pattern         = '#.#.#.#.#.#.#.#.#.#.#.#.#.';
     	display.segmentCount    = SegmentDisplay.FourteenSegment
     	display.cornerType      = SegmentDisplay.RoundedCorner;
@@ -25,7 +26,7 @@ function loadWindow () {
     	let canvas = document.getElementsByTagName('canvas')[0]
     	canvas.width  = 900
     	canvas.height = 70
-    	stack = new Stack(4)
+    	
     	stack.dataStore.forEach(element => element=new Decimal('0.000'))
 		displayNumber(Number(0).toFixed(3))
 }
@@ -64,4 +65,6 @@ function spaceE(numberOrig){ //add a space to exponent 4.0 E +10
 
 }
 
-
+function format(obj){	
+	return fmtType === "fixed" ? obj.toFixed(fmtDigits) : fmtType === "exp" ? obj.toExponential(fmtDigits) : null
+} 
