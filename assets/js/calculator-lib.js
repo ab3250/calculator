@@ -2,7 +2,7 @@
 
 const display = new SegmentDisplay("display"),
 	  stack = new Stack
-let	fmtDigits = 3, fmtType = "fix"
+let	fmtDigits = 3, fmtType = "exp"
 
 document.addEventListener('DOMContentLoaded', loadWindow, false)
 
@@ -10,22 +10,22 @@ function loadWindow () {
 	Array.from(document.getElementsByTagName('button')).forEach(function (value, i, col) {
     	 col[i].onclick = function (e) { buttonPress(e.target.id) }
 	})
-    	
-		display.pattern         = '#.#.#.#.#.#.#.#.#.#.#.#.#.';
-    	display.segmentCount    = SegmentDisplay.FourteenSegment
-    	display.cornerType      = SegmentDisplay.RoundedCorner;
-    	display.digitHeight     = 6;
-    	display.digitWidth      = 8;
-    	display.digitDistance   = 2.0;
-    	display.displayAngle    = 6;
-    	display.segmentWidth    = .55;
-    	display.segmentDistance = 0.2;
-    	display.colorOn         = 'rgb(255, 44, 15)';
-    	display.colorOff        = 'rgb(60, 22, 5)';
-    	let canvas = document.getElementsByTagName('canvas')[0]
-    	canvas.width  = 900
-    	canvas.height = 70
-		displayNumber(Number(0).toFixed(3))
+	
+	display.pattern         = '#.#.#.#.#.#.#.#.#.#.#.#.#.';
+	display.segmentCount    = SegmentDisplay.FourteenSegment
+	display.cornerType      = SegmentDisplay.RoundedCorner;
+	display.digitHeight     = 6;
+	display.digitWidth      = 8;
+	display.digitDistance   = 2.0;
+	display.displayAngle    = 6;
+	display.segmentWidth    = .55;
+	display.segmentDistance = 0.2;
+	display.colorOn         = 'rgb(255, 44, 15)';
+	display.colorOff        = 'rgb(60, 22, 5)';
+	let canvas = document.getElementsByTagName('canvas')[0]
+	canvas.width  = 900
+	canvas.height = 70
+	displayNumber(format(Number(0)))
 }
 
 function setCharAt(str,index,chr) {
@@ -49,11 +49,11 @@ function displayNumber(numberOrig){
 	display.setValue(numberOutput)
 }
 
-function formatNumber(numberOrig){
-	let val = new Decimal(numberOrig)
-	displayNumber(spaceE(val.toDecimalPlaces(2)))
-	console.log(val.toDecimalPlaces(2).toString())
-}
+//function formatNumber(numberOrig){
+//	let val = new Decimal(numberOrig)
+//	displayNumber(spaceE(val.toDecimalPlaces(2)))
+//	console.log(val.toDecimalPlaces(2).toString())
+//}
 
 function spaceE(numberOrig){ //add a space to exponent 4.0 E +10
 	let numberString = numberOrig.toString()
@@ -64,3 +64,26 @@ function spaceE(numberOrig){ //add a space to exponent 4.0 E +10
 function format(obj){	
 	return fmtType === "fix" ? obj.toFixed(fmtDigits) : fmtType === "exp" ? obj.toExponential(fmtDigits) : null
 } 
+
+function mul(value1,value2){	
+	return value2 * value1
+}
+
+function div(value1,value2){	
+	return value2 / value1
+}
+
+function add(value1,value2){	
+	return value2 + value1
+}
+
+function sub(value1,value2){	
+	return value2 - value1
+}
+
+
+function calc(func){
+	const value1 = stack.pop() ,
+		  value2 = stack.pop()
+	func.name === 'div' && value1 == 0 ? (stack.push(value2), stack.push(value1)) : stack.push(register = format(func(Number(value1),Number(value2))))
+}

@@ -22,25 +22,28 @@ function buttonPress (btnID) {
 		}
 	}else if (regexOpr.test(btnID)&&register.length!==0){
 		//dataEntryMode = false
-		dataEntryMode === true ? (stack.push(register),dataEntryMode = false) : null //TODO ??? push and pop same value
-		const 	//c = stack.peek(0),
-				value1 = stack.pop(),
-				value2 = stack.pop()
+		dataEntryMode === true ? (stack.push(format(Number(register))),dataEntryMode = false) : null //TODO ??? push and pop same value
+		//const 	value1 = stack.pop(),
+		//		value2 = stack.pop()
 		switch(btn){
 			case 'a': //add
-				register = (Number(value2) + Number(value1)).toFixed(3)
-				stack.push(register)
+				//register = (Number(value2) + Number(value1)).toFixed(3)
+				//stack.push(register)
+				calc(add)
 				break
 			case 's': //subtract
-				register = (Number(value2) - Number(value1)).toFixed(3)
-				stack.push(register)
+				//register = (Number(value2) - Number(value1)).toFixed(3)
+				//stack.push(register)
+				calc(sub)
 				break
 			case 'm': //multiply
-				register = (Number(value2) * Number(value1)).toFixed(3)
-				stack.push(register)
+				//register = (Number(value2) * Number(value1)).toFixed(3)
+				//stack.push(register)
+				calc(mul)
 				break
 			case 'd': //divide
-				Number(value1) !== 0 ? (register = (Number(value2) / Number(value1)).toFixed(3), stack.push(register)) : (stack.push(value2),stack.push(value1))
+				//Number(value1) !== 0 ? (register = (Number(value2) / Number(value1)).toFixed(3), stack.push(register)) : (stack.push(value2),stack.push(value1))
+				calc(div)
 				break
 			default: null
 		}
@@ -59,7 +62,7 @@ function buttonPress (btnID) {
 				register = stack.peek(0)				
 				break
 			case 'r': //return
-				register.length !== 0 ? stack.push(register = (Number(register).toFixed(3))) : null
+				register.length !== 0 ? stack.push(register = (format(Number(register)))) : null
 				break
 			default: null
 		}	
@@ -68,7 +71,7 @@ function buttonPress (btnID) {
 		switch(btn){
 			case 'c':
 				dataEntryMode === false ?
-					(register = stack.pop(), stack.push(register = (register * -1).toFixed(3)))					:
+					(register = stack.pop(), stack.push(register = format((register * -1))))	:
 					register.length !== 0 && register != 0 ? register = (register * -1).toString(): null			
 				break
 			case 'b': //backspace //TODO - fix bs clear regi
@@ -82,7 +85,7 @@ function buttonPress (btnID) {
 		}
 	}
 	//formatNumber(register)
-	displayNumber(register.length === 0 ? (Number(0).toFixed(3)) : register)
+	displayNumber(register.length === 0 ? (format(Number(0))) : register)
 	stack.print()
 	//register.length === 0 ? displayNumber('0.000') : displayNumber(register)
 	//console.clear()
