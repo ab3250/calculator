@@ -20,30 +20,20 @@ function buttonPress (btnID) {
 				break
 			default: register += btn
 		}
-	}else if (regexOpr.test(btnID)&&register.length!==0){
-		//dataEntryMode = false
+	}else if (regexOpr.test(btnID)){//&&register.length!==0){
 		dataEntryMode === true ? (stack.push(format(Number(register))),dataEntryMode = false) : null //TODO ??? push and pop same value
-		//const 	value1 = stack.pop(),
-		//		value2 = stack.pop()
 		switch(btn){
 			case 'a': //add
-				//register = (Number(value2) + Number(value1)).toFixed(3)
-				//stack.push(register)
-				calc(add)
+				calc2(add)
 				break
 			case 's': //subtract
-				//register = (Number(value2) - Number(value1)).toFixed(3)
-				//stack.push(register)
-				calc(sub)
+				calc2(sub)
 				break
 			case 'm': //multiply
-				//register = (Number(value2) * Number(value1)).toFixed(3)
-				//stack.push(register)
-				calc(mul)
+				calc2(mul)
 				break
 			case 'd': //divide
-				//Number(value1) !== 0 ? (register = (Number(value2) / Number(value1)).toFixed(3), stack.push(register)) : (stack.push(value2),stack.push(value1))
-				calc(div)
+				calc2(div)
 				break
 			default: null
 		}
