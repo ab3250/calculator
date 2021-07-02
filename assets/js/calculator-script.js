@@ -3,8 +3,8 @@
 let dataEntryMode = false 
 let register = ''
 const regexDig=/^dig([0-9]{1}|[p])$/ // digits 0-9 + p = period
-const regexOpr=/^opr([a]|[s]|[d]|[m]|[e]|[x]|[o]|[g]|[f])$/ //operator Add Subtract Divide Multiply  e=sum x=undefined 
-const regexCmd=/^cmd([c]|[o]|[g]|[r]|[f])$/ //  return o=rolldown g = x<>y f=clear
+const regexOpr=/^opr([a]|[s]|[d]|[m]|[e]|[x]|[g])$/ //operators Add Subtract Divide Multiply  e=sum x=undefined g = x<>y 
+const regexCmd=/^cmd([o]|[r]|[f])$/ // commands mode changing r = return  o=rolldown f=clear
 const regexSpl=/^spl([c]|[b])$/ //non-mode changing commands backspace chs
 
 function buttonPress (btnID) {
@@ -20,9 +20,13 @@ function buttonPress (btnID) {
 				break
 			default: register += btn
 		}
-	}else if (regexOpr.test(btnID)){//&&register.length!==0){
-		dataEntryMode === true ? (stack.push(format(Number(register))),dataEntryMode = false) : null //TODO ??? push and pop same value
+	}else if (regexOpr.test(btnID)){
+		dataEntryMode === true ? (stack.push(format(Number(register))),dataEntryMode = false) : null 
 		switch(btn){
+			case 'g': //x<>y
+				stack.swapxy()
+				register = stack.peek(0)
+				break
 			case 'a': //add
 				calc2(add)
 				break
@@ -37,14 +41,11 @@ function buttonPress (btnID) {
 				break
 			default: null
 		}
-	}else if (regexCmd.test(btnID)) {		
+	}else if (regexCmd.test(btnID)) {	
+		dataEntryMode = false		
 		switch(btn){
 			case 'o': //rolldown				
 				stack.rolldown()
-				register = stack.peek(0)
-				break
-			case 'g': //x<>y
-				stack.swapxy()
 				register = stack.peek(0)
 				break
 			case 'f': //clear all				
@@ -56,7 +57,6 @@ function buttonPress (btnID) {
 				break
 			default: null
 		}	
-		dataEntryMode = false	
 	}else if (regexSpl.test(btnID)&&register.length!==0){
 		switch(btn){
 			case 'c':
@@ -64,21 +64,15 @@ function buttonPress (btnID) {
 					(register = stack.pop(), stack.push(register = format((register * -1))))	:
 					register.length !== 0 && register != 0 ? register = (register * -1).toString(): null			
 				break
-			case 'b': //backspace //TODO - fix bs clear regi
-				dataEntryMode  === false ?
-				 (stack.pop(register),register = '') 
-				 : 		// TODO: ????		
-				register.length !== 0 ? register = register.substring(0,register.length-1) : null  // can't go below zero otherwise remove char
-				// if only char is negative sign clear
+			case 'b': //backspace // can't go below zero otherwise remove char if only char is negative sign clear
+				dataEntryMode  === false ?  (stack.rolldown(), register = stack.peek(0)) : 
+					register.length !== 0 ? (register = register.substring(0,register.length-1),
+					register.length === 1 && register[0] === '-' ?  register = '' : null) : null 					
 				break
 			default: null
 		}
 	}
-	//formatNumber(register)
 	displayNumber(register.length === 0 ? (format(Number(0))) : register)
 	stack.print()
-	//register.length === 0 ? displayNumber('0.000') : displayNumber(register)
-	//console.clear()
-	//stack.dataStore.forEach(x=>console.log(x))
 }
 

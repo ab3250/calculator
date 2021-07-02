@@ -38,17 +38,17 @@ function SegmentDisplay(displayId) {
   // this.cornerType      = SegmentDisplay.RoundedCorner;
   // this.colorOn         = 'rgb(233, 93, 15)';
   // this.colorOff        = 'rgb(75, 30, 5)';
-//  this.pattern         = '#########'
- // this.displayAngle    = 5
-//  this.digitHeight     = 20
-//  this.digitWidth      = 15
-//  this.digitDistance   = 2.5
-//  this.segmentWidth    = 2
-//  this.segmentDistance = 0.1
-//  this.segmentCount    = 16
-//  this.cornerType      = 3
-//  this.colorOn         = 'rgba(233, 93, 15, 0.9)'
-//  this.colorOff        = 'rgba(75, 30, 5, 0.5)'
+  // this.pattern         = '#########'
+  // this.displayAngle    = 5
+  // this.digitHeight     = 20
+  // this.digitWidth      = 15
+  // this.digitDistance   = 2.5
+  // this.segmentWidth    = 2
+  // this.segmentDistance = 0.1
+  // this.segmentCount    = 16
+  // this.cornerType      = 3
+  // this.colorOn         = 'rgba(233, 93, 15, 0.9)'
+  // this.colorOff        = 'rgba(75, 30, 5, 0.5)'
 };
 
 SegmentDisplay.prototype.setValue = function(value) {

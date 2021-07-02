@@ -21,7 +21,8 @@
 	margin: 0px 0px 0px 0px;
 }
 
-canvas{margin: 10px  10px  10px  10px
+canvas{
+    margin: 10px  10px  10px  10px
 }
 
 #span span{
@@ -233,7 +234,7 @@ button:hover {
     background-size: 45px 45px;
 }
 
-#cmdg{
+#oprg{
     background-image:url('/assets/img/xtoy.png');
     background-size: 45px 45px;
 }
