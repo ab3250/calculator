@@ -38,7 +38,7 @@ function processDigits(btn){
 		dataEntryMode  === false ? (register = '', dataEntryMode = true): null
 		switch(btn){
 			case 'p':
-				register.includes(".") ? register += '' : register.length === 0 ? register += '0.' : register += '.'
+				register.includes(".") ? null : register.length === 0 ? register += '0.' : register += '.'
 				break
 			case '0':
 				register.length === 0 ? register += '' : register += '0'
