@@ -1,3 +1,5 @@
+'use strict'
+
 function Stack() {
    
    this.dataStore = ['','','','']
