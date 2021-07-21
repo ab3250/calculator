@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "dependencies": {
-    "standard": "^16.0.3"
+    "standard": "^16.0.3",
+    "ws": "^7.5.2"
   },
   "devDependencies": {
     "eslint": "^7.30.0",

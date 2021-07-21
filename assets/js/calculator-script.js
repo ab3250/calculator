@@ -38,11 +38,9 @@ function buttonPress (btnID) {
 }
 
 function processDigits (btn) {
-  // eslint-disable-next-line no-unused-expressions
   dataEntryMode === false ? (register = '', dataEntryMode = true) : null
   switch (btn) {
     case 'p':
-      // eslint-disable-next-line no-unused-expressions
       register.includes('.') ? null : register.length === 0 ? register += '0.' : register += '.'
       break
     case '0':
@@ -110,7 +108,8 @@ function processSpecial (btn) {
       break
 
     case 'b': // backspace // can't go below zero otherwise remove char if only char is negative sign clear
-      dataEntryMode === false ? (stack.rolldown(), register = stack.peek(0))
+      dataEntryMode === false
+        ? (stack.rolldown(), register = stack.peek(0))
         : register.length !== 0 ? (register = register.substring(0, register.length - 1),
         register.length === 1 && register[0] === '-' ? register = '' : null) : null
       break
